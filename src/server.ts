@@ -28,6 +28,7 @@ app.use(async (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/api-docs', swaggerRouter);
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/notes', noteRoutes);
@@ -38,13 +39,13 @@ app.get('/health', (req: Request, res: Response) => {
 });
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('API is running.');
+  res.send('Secure Note-Taking API is running');
 });
 
-if (process.env.NODE_ENV != 'production') {
-  app.listen(PORT, ()=> {
-    console.log(`Server running locally on port ${PORT}`)
-  })
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running locally on port ${PORT}`);
+  });
 }
 
-export default app
+export default app;
